@@ -31,12 +31,13 @@ public class AgencyServiceImpl implements AgencyService {
 
     @Override
     public Agency getAgencyById(Long id) {
-        return null;
+        return
+                agencyRepository.getAgencyById(id);
     }
 
     @Override
     public String updateAgency(Long id, Agency agency) {
-        return null;
+        return agencyRepository.updateAgency(id, agency);
     }
 
     @Override

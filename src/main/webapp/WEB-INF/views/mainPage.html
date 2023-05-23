@@ -22,7 +22,10 @@
         <form th:method="DELETE" th:action="@{/agencies/{id}/delete (id=${agency.getId()})}">
             <input type="submit" th:value="Delete">
         </form>
-        <a href="#" class="btn btn-primary">Go into this agency</a>
+        <a th:href="@{/agencies/{id}/get (id=${agency.getId()})}"
+           class="btn btn-primary">Go into this agency</a>
+        <a th:href="@{/agencies/{id}/edit (id=${agency.getId()})}"
+           class="btn btn-primary"> Update</a>
     </div>
 </div>
 </div>

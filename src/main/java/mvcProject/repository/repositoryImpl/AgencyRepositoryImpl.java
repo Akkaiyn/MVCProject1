@@ -30,11 +30,24 @@ public class AgencyRepositoryImpl implements AgencyRepository {
 
     @Override
     public Agency getAgencyById(Long id) {
-        return null;
+
+        return entityManager.find(Agency.class, id);
     }
 
     @Override
     public String updateAgency(Long id, Agency agency) {
+        Agency agency1 = entityManager.find(Agency.class, id);
+        agency1.setAgencyName(agency.getAgencyName());
+        agency1.setCustomers(agency.getCustomers());
+        agency1.setHouses(agency.getHouses());
+        agency1.setEmail(agency.getEmail());
+        agency1.setImage(agency.getImage());
+        agency1.setCountry(agency.getCountry());
+        agency1.setPhoneNumber(agency.getPhoneNumber());
+        entityManager.merge(agency1);
+
+
+
         return null;
     }
 

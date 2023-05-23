@@ -33,5 +33,26 @@ public class AgencyApi {
         agencyService.deleteCompany(id);
         return "redirect:/agencies";
     }
+@GetMapping("/{id}/get")
+    public String getAgencyById(@PathVariable("id") Long id, Model model){
+      model.addAttribute("agency",  agencyService.getAgencyById(id));
+        return "agencyPage";
+    }
+@GetMapping("/{id}/edit")
 
+    public String update(@PathVariable("id") Long id, Model model){
+        model.addAttribute("editAgency",
+                agencyService.getAgencyById(id));
+        return "updateAgency";
+
+
+    }
+@PostMapping("/updateAgency/{id}")
+    public String saveUpdate(@ModelAttribute("editAgency")
+                             Agency agency, @PathVariable("id") Long id){
+        agencyService.updateAgency(id, agency);
+        return "redirect:/agencies";
+
+
+    }
 }
